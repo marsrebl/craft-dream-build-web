@@ -152,11 +152,23 @@ const chatbotMessages = document.getElementById('chatbot-messages');
 const chatbotInput = document.getElementById('chatbot-input');
 const chatbotSend = document.getElementById('chatbot-send');
 
-chatbotToggle.addEventListener('click', () => {
-    chatbot.classList.toggle('open');
+// Make sure chatbot is visible on page load
+document.addEventListener('DOMContentLoaded', () => {
+    if (chatbot) {
+        chatbot.style.display = 'block';
+        chatbot.style.visibility = 'visible';
+    }
 });
 
+if (chatbotToggle && chatbot) {
+    chatbotToggle.addEventListener('click', () => {
+        chatbot.classList.toggle('open');
+    });
+}
+
 function addMessage(message, isUser = false) {
+    if (!chatbotMessages) return;
+    
     const messageDiv = document.createElement('div');
     messageDiv.classList.add('message');
     messageDiv.classList.add(isUser ? 'user-message' : 'bot-message');
@@ -192,6 +204,8 @@ function getBotResponse(userMessage) {
 }
 
 function sendMessage() {
+    if (!chatbotInput) return;
+    
     const message = chatbotInput.value.trim();
     if (message) {
         addMessage(message, true);
@@ -204,12 +218,17 @@ function sendMessage() {
     }
 }
 
-chatbotSend.addEventListener('click', sendMessage);
-chatbotInput.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') {
-        sendMessage();
-    }
-});
+if (chatbotSend) {
+    chatbotSend.addEventListener('click', sendMessage);
+}
+
+if (chatbotInput) {
+    chatbotInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            sendMessage();
+        }
+    });
+}
 
 // Scroll reveal animation
 function revealOnScroll() {
