@@ -1,4 +1,3 @@
-
 // Navigation functionality
 const hamburger = document.getElementById('hamburger');
 const navMenu = document.getElementById('nav-menu');
@@ -15,12 +14,24 @@ navMenu.addEventListener('click', (e) => {
     }
 });
 
-// Header scroll effect
+// Header scroll effect and floating button
 window.addEventListener('scroll', () => {
+    const header = document.getElementById('header');
+    const floatingButton = document.getElementById('floating-lets-talk');
+    const heroSection = document.getElementById('home');
+    const heroHeight = heroSection.offsetHeight;
+    
     if (window.scrollY > 100) {
         header.classList.add('scrolled');
     } else {
         header.classList.remove('scrolled');
+    }
+    
+    // Show floating Let's Talk button after hero section
+    if (window.scrollY > heroHeight - 200) {
+        floatingButton.classList.add('visible');
+    } else {
+        floatingButton.classList.remove('visible');
     }
 });
 

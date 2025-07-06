@@ -39,14 +39,14 @@ body {
 .header-top {
     background: #4ACC16;
     color: white;
-    padding: 8px 0;
-    font-size: 14px;
+    padding: 5px 0;
+    font-size: 13px;
 }
 
 .contact-info {
     display: flex;
     justify-content: flex-end;
-    gap: 30px;
+    gap: 25px;
 }
 
 .contact-info span {
@@ -56,12 +56,12 @@ body {
 }
 
 .navbar {
-    padding: 15px 0;
+    padding: 20px 0;
     transition: padding 0.3s ease;
 }
 
 .header.scrolled .navbar {
-    padding: 10px 0;
+    padding: 15px 0;
 }
 
 .nav-container {
@@ -89,13 +89,14 @@ body {
 .nav-menu {
     display: flex;
     list-style: none;
-    gap: 30px;
+    gap: 35px;
 }
 
 .nav-link {
     text-decoration: none;
     color: #333;
     font-weight: 500;
+    font-size: 16px;
     position: relative;
     transition: color 0.3s ease;
 }
@@ -133,6 +134,31 @@ body {
     height: 3px;
     background: #333;
     transition: all 0.3s ease;
+}
+
+/* Floating Let's Talk Button */
+.floating-lets-talk {
+    position: fixed;
+    top: 50%;
+    right: 30px;
+    transform: translateY(-50%);
+    z-index: 1001;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.floating-lets-talk.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.floating-lets-talk .btn {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    padding: 15px 10px;
+    border-radius: 25px 25px 25px 25px;
+    box-shadow: 0 4px 15px rgba(74, 204, 22, 0.3);
 }
 
 /* Hero Section */
@@ -242,17 +268,6 @@ body {
     background: white;
     color: #4ACC16;
     transform: translateY(-2px);
-}
-
-.btn-accent {
-    background: linear-gradient(45deg, #4ACC16, #66d932);
-    color: white;
-    box-shadow: 0 4px 15px rgba(74, 204, 22, 0.3);
-}
-
-.btn-accent:hover {
-    transform: translateY(-2px) scale(1.05);
-    box-shadow: 0 8px 25px rgba(74, 204, 22, 0.5);
 }
 
 .hero-indicators {
@@ -863,27 +878,14 @@ body {
         align-items: center;
     }
     
-    .intro-content {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-    
-    .contact-content {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-    
-    .services-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .service-areas {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    }
-    
-    .contact-info span {
+    .contact-info {
         flex-direction: column;
-        gap: 10px;
+        gap: 5px;
+        align-items: flex-end;
+    }
+    
+    .floating-lets-talk {
+        right: 20px;
     }
     
     .chatbot {
@@ -907,12 +909,12 @@ body {
         font-size: 14px;
     }
     
-    .services-grid {
-        grid-template-columns: 1fr;
+    .contact-info {
+        font-size: 12px;
     }
     
-    .service-areas {
-        grid-template-columns: 1fr;
+    .navbar {
+        padding: 15px 0;
     }
 }
 
