@@ -1,4 +1,3 @@
-
 /* Reset and Base Styles */
 * {
     margin: 0;
@@ -39,8 +38,8 @@ body {
 .header-top {
     background: #4ACC16;
     color: white;
-    padding: 5px 0;
-    font-size: 13px;
+    padding: 3px 0;
+    font-size: 12px;
 }
 
 .contact-info {
@@ -56,12 +55,12 @@ body {
 }
 
 .navbar {
-    padding: 20px 0;
+    padding: 12px 0;
     transition: padding 0.3s ease;
 }
 
 .header.scrolled .navbar {
-    padding: 15px 0;
+    padding: 8px 0;
 }
 
 .nav-container {
