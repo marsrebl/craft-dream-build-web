@@ -1,24 +1,383 @@
+
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>craft-dream-build-web</title>
-    <meta name="description" content="Lovable Generated Project" />
-    <meta name="author" content="Lovable" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Estate Crafters International - You Dream It, We Build It</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="header-top">
+            <div class="container">
+                <div class="contact-info">
+                    <span><i class="fas fa-envelope"></i> info@realestatecrafter.com</span>
+                    <span><i class="fas fa-phone"></i> +977-9800000000</span>
+                </div>
+            </div>
+        </div>
+        <nav class="navbar" id="navbar">
+            <div class="container nav-container">
+                <div class="logo">
+                    <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=80&h=60&fit=crop&crop=entropy" alt="REC Logo">
+                    <span>REAL ESTATE CRAFTERS</span>
+                </div>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="#home" class="nav-link active">Home</a></li>
+                    <li><a href="#about" class="nav-link">About Us</a></li>
+                    <li><a href="#services" class="nav-link">Services</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
 
-    <meta property="og:title" content="craft-dream-build-web" />
-    <meta property="og:description" content="Lovable Generated Project" />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    <!-- Main Content -->
+    <main>
+        <!-- Home Section -->
+        <section id="home" class="hero">
+            <div class="hero-slider">
+                <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1920&h=1080&fit=crop&crop=entropy');">
+                    <div class="slide-overlay"></div>
+                </div>
+                <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=1920&h=1080&fit=crop&crop=entropy');">
+                    <div class="slide-overlay"></div>
+                </div>
+                <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&h=1080&fit=crop&crop=entropy');">
+                    <div class="slide-overlay"></div>
+                </div>
+            </div>
+            <div class="hero-content">
+                <div class="container">
+                    <h1 class="hero-title animate-fade-in">You Dream It, We Build It</h1>
+                    <p class="hero-subtitle animate-fade-in-delay">Professional real estate and construction services across Nepal</p>
+                    <div class="hero-buttons animate-fade-in-delay-2">
+                        <a href="#contact" class="btn btn-primary">Let's Talk</a>
+                        <a href="#services" class="btn btn-secondary">Our Services</a>
+                        <a href="#contact" class="btn btn-accent">Get a Quote</a>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-indicators">
+                <span class="indicator active" data-slide="0"></span>
+                <span class="indicator" data-slide="1"></span>
+                <span class="indicator" data-slide="2"></span>
+            </div>
+        </section>
 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@lovable_dev" />
-    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
-  </head>
+        <!-- Company Description -->
+        <section class="company-intro">
+            <div class="container">
+                <div class="intro-content">
+                    <div class="intro-text">
+                        <h2 class="section-title">Building Dreams, Creating Futures</h2>
+                        <p>Real Estate Crafters International Pvt. Ltd. is your trusted partner in construction, real estate, and property management. With years of experience and a commitment to excellence, we transform your vision into reality.</p>
+                        <p>From house construction to property management, we provide comprehensive services that meet the highest standards of quality and professionalism.</p>
+                    </div>
+                    <div class="intro-image">
+                        <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=600&h=400&fit=crop&crop=entropy" alt="Our Work">
+                    </div>
+                </div>
+            </div>
+        </section>
 
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+        <!-- About Section -->
+        <section id="about" class="about">
+            <div class="container">
+                <h2 class="section-title">About Real Estate Crafters</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <h3>Our Mission</h3>
+                        <p>To provide exceptional real estate and construction services that exceed our clients' expectations while maintaining the highest standards of quality, integrity, and professionalism.</p>
+                        
+                        <h3>Our Vision</h3>
+                        <p>To be the leading real estate and construction company in Nepal, known for innovation, quality, and customer satisfaction.</p>
+                        
+                        <h3>Areas We Serve</h3>
+                        <div class="service-areas">
+                            <div class="area-card">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <h4>JANAKPUR</h4>
+                            </div>
+                            <div class="area-card">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <h4>BARDIBAS</h4>
+                            </div>
+                            <div class="area-card">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <h4>LALBANDI</h4>
+                            </div>
+                            <div class="area-card">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <h4>HETAUDA</h4>
+                            </div>
+                            <div class="area-card">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <h4>KATHMANDU</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="services">
+            <div class="container">
+                <h2 class="section-title">Our Services</h2>
+                <div class="services-grid">
+                    <div class="service-card" data-service="construction">
+                        <div class="service-image">
+                            <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=400&h=300&fit=crop&crop=entropy" alt="House Construction">
+                            <div class="service-overlay">
+                                <i class="fas fa-home"></i>
+                            </div>
+                        </div>
+                        <div class="service-content">
+                            <h3>House Construction & Engineering</h3>
+                            <p>Complete construction services from planning to completion with modern engineering solutions.</p>
+                            <a href="#" class="learn-more-btn">Learn More</a>
+                        </div>
+                    </div>
+
+                    <div class="service-card" data-service="buying-selling">
+                        <div class="service-image">
+                            <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=400&h=300&fit=crop&crop=entropy" alt="Land Buying Selling">
+                            <div class="service-overlay">
+                                <i class="fas fa-handshake"></i>
+                            </div>
+                        </div>
+                        <div class="service-content">
+                            <h3>Land Buying and Selling</h3>
+                            <p>Expert assistance in land transactions with legal support and market analysis.</p>
+                            <a href="#" class="learn-more-btn">Learn More</a>
+                        </div>
+                    </div>
+
+                    <div class="service-card" data-service="electrician-plumbing">
+                        <div class="service-image">
+                            <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=400&h=300&fit=crop&crop=entropy" alt="Electrician Plumbing">
+                            <div class="service-overlay">
+                                <i class="fas fa-tools"></i>
+                            </div>
+                        </div>
+                        <div class="service-content">
+                            <h3>Electrician & Plumbing Services</h3>
+                            <p>Professional electrical and plumbing installation and maintenance services.</p>
+                            <a href="#" class="learn-more-btn">Learn More</a>
+                        </div>
+                    </div>
+
+                    <div class="service-card" data-service="rental">
+                        <div class="service-image">
+                            <img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=400&h=300&fit=crop&crop=entropy" alt="Rental Services">
+                            <div class="service-overlay">
+                                <i class="fas fa-key"></i>
+                            </div>
+                        </div>
+                        <div class="service-content">
+                            <h3>Rental Services</h3>
+                            <p>Comprehensive rental solutions for residential and commercial properties.</p>
+                            <a href="#" class="learn-more-btn">Learn More</a>
+                        </div>
+                    </div>
+
+                    <div class="service-card" data-service="painting">
+                        <div class="service-image">
+                            <img src="https://images.unsplash.com/photo-1562259949-e8e7689d7828?w=400&h=300&fit=crop&crop=entropy" alt="House Painting">
+                            <div class="service-overlay">
+                                <i class="fas fa-paint-roller"></i>
+                            </div>
+                        </div>
+                        <div class="service-content">
+                            <h3>House Painting Services</h3>
+                            <p>Professional interior and exterior painting services with quality materials.</p>
+                            <a href="#" class="learn-more-btn">Learn More</a>
+                        </div>
+                    </div>
+
+                    <div class="service-card" data-service="management">
+                        <div class="service-image">
+                            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400&h=300&fit=crop&crop=entropy" alt="Property Management">
+                            <div class="service-overlay">
+                                <i class="fas fa-building"></i>
+                            </div>
+                        </div>
+                        <div class="service-content">
+                            <h3>Property Management & Renovation</h3>
+                            <p>Complete property management and renovation services for maximum value.</p>
+                            <a href="#" class="learn-more-btn">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2 class="section-title">Get In Touch</h2>
+                <div class="contact-content">
+                    <div class="contact-form-container">
+                        <form class="contact-form" id="contact-form">
+                            <div class="form-group">
+                                <label for="purpose">Purpose *</label>
+                                <select id="purpose" name="purpose" required>
+                                    <option value="">Select Purpose</option>
+                                    <option value="project-build">Project Build</option>
+                                    <option value="buy-sell">Buy/Sell</option>
+                                    <option value="rent">Rent</option>
+                                    <option value="other">Other Services</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="full-name">Full Name *</label>
+                                <input type="text" id="full-name" name="fullName" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="address">Address *</label>
+                                <input type="text" id="address" name="address" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="contact-number">Contact Number *</label>
+                                <input type="tel" id="contact-number" name="contactNumber" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="description">Service Description</label>
+                                <textarea id="description" name="description" rows="4" placeholder="Describe your requirements..."></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary">Send Message</button>
+                        </form>
+                        
+                        <div class="thank-you-message" id="thank-you-message">
+                            <i class="fas fa-check-circle"></i>
+                            <h3>Thank You!</h3>
+                            <p>Your message has been sent successfully. We'll get back to you soon.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <h4>Our Location</h4>
+                            <p>Kathmandu, Nepal</p>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <h4>Call Us</h4>
+                            <p>+977-9800000000</p>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <h4>Email Us</h4>
+                            <p>info@realestatecrafter.com</p>
+                        </div>
+                        
+                        <div class="map-container">
+                            <iframe 
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d113018.06174469149!2d85.2911134!3d27.708317!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb198a307baabf%3A0xb5137c1bf18db1ea!2sKathmandu%2C%20Nepal!5e0!3m2!1sen!2sus!4v1234567890123"
+                                width="100%" 
+                                height="200" 
+                                style="border:0;" 
+                                allowfullscreen="" 
+                                loading="lazy">
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=60&h=45&fit=crop&crop=entropy" alt="REC Logo">
+                        <span>REAL ESTATE CRAFTERS</span>
+                    </div>
+                    <p>Building dreams and creating futures with professional excellence.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#">House Construction</a></li>
+                        <li><a href="#">Land Buying & Selling</a></li>
+                        <li><a href="#">Property Management</a></li>
+                        <li><a href="#">Rental Services</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <div class="contact-details">
+                        <p><i class="fas fa-envelope"></i> info@realestatecrafter.com</p>
+                        <p><i class="fas fa-phone"></i> +977-9800000000</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Kathmandu, Nepal</p>
+                    </div>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Real Estate Crafters International Pvt. Ltd. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Chatbot -->
+    <div class="chatbot" id="chatbot">
+        <div class="chatbot-header" id="chatbot-toggle">
+            <i class="fas fa-comments"></i>
+            <span>Chat with us</span>
+        </div>
+        <div class="chatbot-body" id="chatbot-body">
+            <div class="chatbot-messages" id="chatbot-messages">
+                <div class="message bot-message">
+                    <p>Hello! How can I help you today?</p>
+                </div>
+            </div>
+            <div class="chatbot-input">
+                <input type="text" id="chatbot-input" placeholder="Type your message...">
+                <button id="chatbot-send"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
 </html>
