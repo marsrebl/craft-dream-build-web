@@ -3,6 +3,7 @@ import { useState } from "react";
 import { X, Play, Calendar, Users, Heart, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import LazyImage from "@/components/LazyImage";
 
 const Gallery = () => {
   const [selectedFilter, setSelectedFilter] = useState("All");
@@ -114,14 +115,21 @@ const Gallery = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-primary/10 via-accent/5 to-background py-16 md:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center space-y-4">
-            <h1 className="text-4xl md:text-6xl font-bold text-foreground">
+      {/* Hero Section with Animated Background */}
+      <section className="relative bg-gradient-to-br from-primary/20 via-accent/10 to-background py-16 md:py-24 overflow-hidden">
+        {/* Animated Background Elements */}
+        <div className="absolute inset-0">
+          <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-primary/10 rounded-full animate-pulse" />
+          <div className="absolute top-3/4 right-1/4 w-24 h-24 bg-accent/10 rounded-full animate-bounce" style={{ animationDelay: '1s' }} />
+          <div className="absolute top-1/2 left-3/4 w-16 h-16 bg-primary/5 rounded-full animate-ping" style={{ animationDelay: '2s' }} />
+        </div>
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center space-y-4 animate-fade-in">
+            <h1 className="text-4xl md:text-6xl font-bold text-foreground animate-scale-in">
               Gallery
             </h1>
-            <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto animate-fade-in" style={{ animationDelay: '0.3s' }}>
               Capturing moments of unity, celebration, and growth in our vibrant Agrawal community
             </p>
           </div>
@@ -129,16 +137,17 @@ const Gallery = () => {
       </section>
 
       {/* Filter Section */}
-      <section className="py-8 bg-card border-b border-border">
+      <section className="py-8 bg-card/50 border-b border-border backdrop-blur-sm sticky top-0 z-40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap justify-center gap-2 md:gap-4">
-            {filterCategories.map((category) => (
+            {filterCategories.map((category, index) => (
               <Button
                 key={category.name}
                 variant={selectedFilter === category.name ? "default" : "outline"}
                 size="sm"
                 onClick={() => setSelectedFilter(category.name)}
-                className="flex items-center space-x-2 transition-all duration-300"
+                className="flex items-center space-x-2 transition-all duration-300 hover:scale-105 animate-fade-in"
+                style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <category.icon className="w-4 h-4" />
                 <span className="hidden sm:inline">{category.name}</span>
@@ -156,27 +165,26 @@ const Gallery = () => {
             {filteredItems.map((item, index) => (
               <div
                 key={item.id}
-                className={`group cursor-pointer transition-all duration-500 hover:scale-105 hover:shadow-xl ${
-                  index % 7 === 0 || index % 7 === 4 ? 'sm:col-span-2 lg:col-span-2' : ''
-                } ${index % 11 === 0 ? 'sm:row-span-2' : ''}`}
+                className="group cursor-pointer transition-all duration-500 hover:scale-105 hover:shadow-2xl animate-fade-in"
+                style={{ animationDelay: `${index * 0.1}s` }}
                 onClick={() => openLightbox(item)}
               >
-                <div className="relative overflow-hidden rounded-xl bg-card shadow-md">
-                  <div className="aspect-[4/3] overflow-hidden">
-                    <img
+                <div className="relative overflow-hidden rounded-xl bg-card shadow-lg hover:shadow-xl transition-shadow duration-300">
+                  <div className="aspect-square overflow-hidden">
+                    <LazyImage
                       src={item.thumbnail}
                       alt={item.title}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      className="w-full h-full"
                     />
                     {item.type === 'video' && (
-                      <div className="absolute inset-0 flex items-center justify-center bg-black/30">
-                        <Play className="w-12 h-12 text-white drop-shadow-lg" />
+                      <div className="absolute inset-0 flex items-center justify-center bg-black/30 transition-opacity duration-300">
+                        <Play className="w-12 h-12 text-white drop-shadow-lg transform group-hover:scale-110 transition-transform duration-300" />
                       </div>
                     )}
                   </div>
                   
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300">
+                    <div className="absolute bottom-0 left-0 right-0 p-4 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
                       <h3 className="font-semibold text-lg mb-1">{item.title}</h3>
                       <div className="flex items-center space-x-2 text-sm">
                         <Calendar className="w-4 h-4" />
@@ -195,22 +203,22 @@ const Gallery = () => {
           </div>
 
           {filteredItems.length === 0 && (
-            <div className="text-center py-12">
+            <div className="text-center py-12 animate-fade-in">
               <p className="text-muted-foreground text-lg">No items found in this category.</p>
             </div>
           )}
         </div>
       </section>
 
-      {/* Lightbox Modal */}
+      {/* Enhanced Lightbox Modal */}
       {lightboxItem && (
-        <div className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center p-4">
-          <div className="relative max-w-6xl max-h-[90vh] w-full">
+        <div className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center p-4 animate-fade-in">
+          <div className="relative max-w-6xl max-h-[90vh] w-full animate-scale-in">
             <button
               onClick={closeLightbox}
-              className="absolute -top-12 right-0 text-white hover:text-primary transition-colors z-10"
+              className="absolute -top-4 -right-4 z-20 w-10 h-10 bg-white/20 hover:bg-white/30 text-white rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 backdrop-blur-sm border border-white/20"
             >
-              <X className="w-8 h-8" />
+              <X className="w-5 h-5" />
             </button>
             
             <div className="bg-card rounded-lg overflow-hidden shadow-2xl">

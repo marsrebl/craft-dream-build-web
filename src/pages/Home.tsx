@@ -38,7 +38,7 @@ const Home = () => {
 
   return (
     <>
-      {/* Scoped animation styles */}
+      {/* Enhanced animation styles */}
       <style>
         {`
           @keyframes slowZoomPan {
@@ -52,40 +52,71 @@ const Home = () => {
               transform: scale(1) translate(0, 0);
             }
           }
+          @keyframes floatingOrbs {
+            0%, 100% {
+              transform: translateY(0) rotate(0deg);
+            }
+            50% {
+              transform: translateY(-20px) rotate(180deg);
+            }
+          }
+          @keyframes fadeInUp {
+            from {
+              opacity: 0;
+              transform: translateY(30px);
+            }
+            to {
+              opacity: 1;
+              transform: translateY(0);
+            }
+          }
           .bg-animated {
             animation: slowZoomPan 30s ease-in-out infinite;
             will-change: transform;
+          }
+          .floating-orb {
+            animation: floatingOrbs 6s ease-in-out infinite;
+          }
+          .fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
           }
         `}
       </style>
 
       <div className="min-h-screen scroll-smooth">
-        {/* Hero Section */}
+        {/* Enhanced Hero Section */}
         <section className="relative h-screen flex items-center justify-center overflow-hidden">
           <div
             className="absolute inset-0 bg-cover bg-center bg-no-repeat filter brightness-75 bg-animated"
             style={{ backgroundImage: `url(${heroImage})` }}
             aria-label="Hero background"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-accent/5"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/10"></div>
+          
+          {/* Floating orbs animation */}
+          <div className="absolute inset-0 overflow-hidden">
+            <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-primary/10 rounded-full floating-orb" style={{ animationDelay: '0s' }} />
+            <div className="absolute top-3/4 right-1/4 w-24 h-24 bg-accent/10 rounded-full floating-orb" style={{ animationDelay: '2s' }} />
+            <div className="absolute top-1/2 left-3/4 w-16 h-16 bg-primary/5 rounded-full floating-orb" style={{ animationDelay: '4s' }} />
+          </div>
 
           <div className="relative z-10 text-center max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h1 className="text-8xl md:text-7xl lg:text-8xl font-extrabold text-white mb-8 leading-tight drop-shadow-lg">
+            <h1 className="text-8xl md:text-7xl lg:text-8xl font-extrabold text-white mb-8 leading-tight drop-shadow-lg fade-in-up">
               Agrawal{" "}
               <span className="block bg-gradient-to-r from-white to-primary-glow bg-clip-text text-transparent">
                 Samaj
               </span>
             </h1>
-            <p className="text-xl md:text-2xl text-white/90 mb-12 leading-relaxed max-w-3xl mx-auto drop-shadow-md">
+            <p className="text-xl md:text-2xl text-white/90 mb-12 leading-relaxed max-w-3xl mx-auto drop-shadow-md fade-in-up" style={{ animationDelay: '0.3s' }}>
               Uniting our community through tradition, culture, and shared values. Building
               bridges across generations and locations.
             </p>
-            <div className="flex flex-col sm:flex-row gap-6 justify-center">
+            <div className="flex flex-col sm:flex-row gap-6 justify-center fade-in-up" style={{ animationDelay: '0.6s' }}>
               <Button
                 variant="hero"
                 size="lg"
                 asChild
-                className="transform transition-transform duration-300 hover:scale-105 shadow-lg hover:shadow-2xl"
+                className="transform transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-2xl"
               >
                 <Link to="/register">
                   Become a Member
@@ -95,7 +126,7 @@ const Home = () => {
               <Button
                 variant="outline"
                 size="lg"
-                className="bg-white/20 border-white text-white hover:bg-white hover:text-primary transform transition duration-300 hover:scale-105 shadow-lg"
+                className="bg-white/20 border-white text-white hover:bg-white hover:text-primary transform transition-all duration-300 hover:scale-105 shadow-lg backdrop-blur-sm"
                 asChild
               >
                 <Link to="/about">Learn More</Link>
@@ -104,16 +135,23 @@ const Home = () => {
           </div>
         </section>
 
-        {/* Community Stats */}
-        <section className="py-20 bg-gradient-to-br from-secondary to-background">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Enhanced Community Stats */}
+        <section className="py-20 bg-gradient-to-br from-secondary/20 to-background relative overflow-hidden">
+          {/* Background animation elements */}
+          <div className="absolute inset-0">
+            <div className="absolute top-0 left-0 w-72 h-72 bg-primary/5 rounded-full blur-3xl animate-pulse" />
+            <div className="absolute bottom-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+          </div>
+          
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-12">
               {communityStats.map((stat, index) => (
                 <div
                   key={index}
-                  className="text-center group cursor-default transform transition-transform duration-300 hover:scale-110"
+                  className="text-center group cursor-default transform transition-all duration-500 hover:scale-110 fade-in-up"
+                  style={{ animationDelay: `${index * 0.2}s` }}
                 >
-                  <div className="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center mx-auto mb-4 group-hover:shadow-xl transition-shadow duration-300">
+                  <div className="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center mx-auto mb-4 group-hover:shadow-xl transition-all duration-300 group-hover:rotate-12">
                     <stat.icon className="w-8 h-8 text-white" />
                   </div>
                   <div className="text-4xl font-extrabold text-primary mb-2">
@@ -194,9 +232,15 @@ const Home = () => {
         </section>
 
         {/* Upcoming Events */}
-        <section className="py-20 bg-gradient-to-br from-muted/50 to-background">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
+        <section className="py-20 bg-gradient-to-br from-muted/50 to-background relative overflow-hidden">
+          {/* Background elements */}
+          <div className="absolute inset-0">
+            <div className="absolute top-1/4 right-1/4 w-64 h-64 bg-primary/3 rounded-full blur-2xl animate-ping" style={{ animationDelay: '0s' }} />
+            <div className="absolute bottom-1/4 left-1/4 w-48 h-48 bg-accent/3 rounded-full blur-2xl animate-ping" style={{ animationDelay: '2s' }} />
+          </div>
+          
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div className="text-center mb-12 fade-in-up">
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
                 Upcoming Events
               </h2>
@@ -210,15 +254,16 @@ const Home = () => {
               {upcomingEvents.map((event, index) => (
                 <div
                   key={index}
-                  className="group transition-transform duration-300 hover:scale-[1.03] hover:shadow-xl cursor-pointer"
+                  className="group transition-all duration-500 hover:scale-[1.03] hover:shadow-xl cursor-pointer fade-in-up"
+                  style={{ animationDelay: `${index * 0.2}s` }}
                 >
-                  <Card className="border-0 bg-card/50 backdrop-blur">
+                  <Card className="border-0 bg-card/70 backdrop-blur-sm hover:bg-card/90 transition-all duration-300">
                     <CardHeader>
                       <div className="flex items-center space-x-2 text-primary mb-2">
                         <Calendar className="w-4 h-4" />
                         <span className="text-sm font-medium">{event.date}</span>
                       </div>
-                      <CardTitle className="group-hover:text-primary transition-colors duration-200">
+                      <CardTitle className="group-hover:text-primary transition-colors duration-300">
                         {event.title}
                       </CardTitle>
                       <div className="flex items-center space-x-2 text-muted-foreground">
@@ -234,8 +279,8 @@ const Home = () => {
               ))}
             </div>
 
-            <div className="text-center">
-              <Button variant="default" size="lg" asChild className="shadow-md hover:shadow-lg transition-shadow">
+            <div className="text-center fade-in-up" style={{ animationDelay: '0.6s' }}>
+              <Button variant="default" size="lg" asChild className="shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105">
                 <Link to="/events">
                   View All Events
                   <Calendar className="w-5 h-5 ml-1 inline" />
