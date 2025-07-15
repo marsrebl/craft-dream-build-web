@@ -4,11 +4,11 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { ThemeProvider } from "next-themes";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AdminPanel from "@/components/AdminPanel";
 import SuperAdminPanel from "@/components/SuperAdminPanel";
+import AdminLogin from "@/components/AdminLogin";
 import { useAdminPanel } from "@/hooks/useAdminPanel";
 import Home from "./pages/Home";
 import About from "./pages/About";
@@ -26,9 +26,13 @@ const AppContent = () => {
   const {
     showAdminPanel,
     showSuperAdminPanel,
+    showAdminLogin,
     currentLocation,
+    isLoading,
     closeAdminPanel,
-    closeSuperAdminPanel
+    closeSuperAdminPanel,
+    handleLogin,
+    closeLogin
   } = useAdminPanel();
 
   return (
@@ -50,6 +54,16 @@ const AppContent = () => {
       </main>
       <Footer />
 
+      {/* Admin Login Modal */}
+      {showAdminLogin && (
+        <AdminLogin
+          onClose={closeLogin}
+          onLogin={handleLogin}
+          role={showAdminLogin}
+          isLoading={isLoading}
+        />
+      )}
+
       {/* Admin Panels */}
       {showAdminPanel && currentLocation && (
         <AdminPanel 
@@ -69,20 +83,13 @@ const AppContent = () => {
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <ThemeProvider
-      attribute="class"
-      defaultTheme="system"
-      enableSystem
-      disableTransitionOnChange
-    >
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <BrowserRouter>
-          <AppContent />
-        </BrowserRouter>
-      </TooltipProvider>
-    </ThemeProvider>
+    <TooltipProvider>
+      <Toaster />
+      <Sonner />
+      <BrowserRouter>
+        <AppContent />
+      </BrowserRouter>
+    </TooltipProvider>
   </QueryClientProvider>
 );
 
