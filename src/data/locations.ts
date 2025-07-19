@@ -32,6 +32,7 @@ export interface LocationFeature {
 export interface Location {
   id: string;
   name: string;
+  leader: string;
   region: string;
   members: MemberCategory;
   events: LocationEvent[];
@@ -43,7 +44,8 @@ export interface Location {
 export const nepaleseLocations: Location[] = [
   {
     id: 'kathmandu',
-    name: 'Kathmandu',
+    name: 'Kathmandu ',
+    leader:'Leader:Mr Agrawal',
     region: 'Bagmati Province',
     members: { yuva: 450, mahila: 320, kanya: 180 },
     events: [
@@ -78,6 +80,7 @@ export const nepaleseLocations: Location[] = [
   {
     id: 'pokhara',
     name: 'Pokhara',
+     leader:'mr Agrawal',
     region: 'Gandaki Province',
     members: { yuva: 280, mahila: 190, kanya: 120 },
     events: [
@@ -112,6 +115,7 @@ export const nepaleseLocations: Location[] = [
   {
     id: 'lalitpur',
     name: 'Lalitpur',
+     leader:'mr Agrawal',
     region: 'Bagmati Province',
     members: { yuva: 220, mahila: 160, kanya: 95 },
     events: [],
@@ -129,6 +133,7 @@ export const nepaleseLocations: Location[] = [
   {
     id: 'bhaktapur',
     name: 'Bhaktapur',
+     leader:'mr Agrawal',
     region: 'Bagmati Province',
     members: { yuva: 180, mahila: 140, kanya: 85 },
     events: [],
@@ -146,6 +151,7 @@ export const nepaleseLocations: Location[] = [
   {
     id: 'biratnagar',
     name: 'Biratnagar',
+     leader:'mr Agrawal',
     region: 'Koshi Province',
     members: { yuva: 320, mahila: 240, kanya: 140 },
     events: [],
@@ -163,6 +169,7 @@ export const nepaleseLocations: Location[] = [
   {
     id: 'chitwan',
     name: 'Chitwan',
+     leader:'mr Agrawal',
     region: 'Bagmati Province',
     members: { yuva: 260, mahila: 180, kanya: 110 },
     events: [],
@@ -180,6 +187,7 @@ export const nepaleseLocations: Location[] = [
   {
     id: 'butwal',
     name: 'Butwal',
+     leader:'mr Agrawal',
     region: 'Lumbini Province',
     members: { yuva: 200, mahila: 150, kanya: 90 },
     events: [],
@@ -197,6 +205,7 @@ export const nepaleseLocations: Location[] = [
   {
     id: 'hetauda',
     name: 'Hetauda',
+     leader:'mr Agrawal',
     region: 'Bagmati Province',
     members: { yuva: 150, mahila: 110, kanya: 70 },
     events: [],
@@ -214,6 +223,7 @@ export const nepaleseLocations: Location[] = [
   {
     id: 'janakpur',
     name: 'Janakpur',
+     leader:'mr Agrawal',
     region: 'Madhesh Province',
     members: { yuva: 290, mahila: 200, kanya: 130 },
     events: [],
@@ -231,6 +241,7 @@ export const nepaleseLocations: Location[] = [
   {
     id: 'nepalgunj',
     name: 'Nepalgunj',
+     leader:'mr Agrawal',
     region: 'Lumbini Province',
     members: { yuva: 240, mahila: 170, kanya: 100 },
     events: [],
@@ -248,6 +259,7 @@ export const nepaleseLocations: Location[] = [
   {
     id: 'dharan',
     name: 'Dharan',
+     leader:'mr Agrawal',
     region: 'Koshi Province',
     members: { yuva: 160, mahila: 120, kanya: 75 },
     events: [],
@@ -265,6 +277,7 @@ export const nepaleseLocations: Location[] = [
   {
     id: 'birgunj',
     name: 'Birgunj',
+     leader:'mr Agrawal',
     region: 'Madhesh Province',
     members: { yuva: 310, mahila: 220, kanya: 135 },
     events: [],
@@ -282,6 +295,7 @@ export const nepaleseLocations: Location[] = [
   {
     id: 'ghorahi',
     name: 'Ghorahi',
+     leader:'mr Agrawal',
     region: 'Lumbini Province',
     members: { yuva: 130, mahila: 95, kanya: 60 },
     events: [],
@@ -299,6 +313,7 @@ export const nepaleseLocations: Location[] = [
   {
     id: 'itahari',
     name: 'Itahari',
+     leader:'mr Agrawal',
     region: 'Koshi Province',
     members: { yuva: 180, mahila: 130, kanya: 80 },
     events: [],
@@ -316,6 +331,7 @@ export const nepaleseLocations: Location[] = [
   {
     id: 'dhangadhi',
     name: 'Dhangadhi',
+     leader:'mr Agrawal',
     region: 'Sudurpashchim Province',
     members: { yuva: 170, mahila: 125, kanya: 78 },
     events: [],
@@ -333,6 +349,7 @@ export const nepaleseLocations: Location[] = [
   {
     id: 'tulsipur',
     name: 'Tulsipur',
+     leader:'mr Agrawal',
     region: 'Lumbini Province',
     members: { yuva: 120, mahila: 85, kanya: 55 },
     events: [],
@@ -350,6 +367,7 @@ export const nepaleseLocations: Location[] = [
   {
     id: 'siddharthanagar',
     name: 'Siddharthanagar',
+     leader:'mr Agrawal',
     region: 'Lumbini Province',
     members: { yuva: 190, mahila: 140, kanya: 85 },
     events: [],
@@ -367,6 +385,7 @@ export const nepaleseLocations: Location[] = [
   {
     id: 'kalaiya',
     name: 'Kalaiya',
+     leader:'mr Agrawal',
     region: 'Madhesh Province',
     members: { yuva: 140, mahila: 100, kanya: 65 },
     events: [],

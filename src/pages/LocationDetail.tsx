@@ -50,8 +50,10 @@ const LocationDetail = () => {
             <h1 className="text-4xl md:text-5xl font-bold text-foreground">
               {location.name}
             </h1>
+             <h2 className="text-2xl md:text-3xl font-bold text-foreground">{location.leader}</h2>
             <div className="flex items-center text-muted-foreground">
               <MapPin className="w-5 h-5 mr-2" />
+              
               <span className="text-lg">{location.region}</span>
             </div>
             <div className="flex items-center gap-4">
@@ -81,27 +83,27 @@ const LocationDetail = () => {
               </CardHeader>
               <CardContent>
                 <div className="text-3xl font-bold text-primary mb-2">{location.members.yuva}</div>
-                <p className="text-muted-foreground">Active youth members</p>
+                <p className="text-primary">Active youth members</p>
               </CardContent>
             </Card>
             
             <Card className="text-center hover:shadow-lg transition-shadow duration-300">
               <CardHeader>
-                <CardTitle className="text-accent-foreground">Mahila (Women)</CardTitle>
+                <CardTitle className="text-primary">Mahila (Women)</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="text-3xl font-bold text-accent-foreground mb-2">{location.members.mahila}</div>
+                <div className="text-3xl font-bold text-primary mb-2">{location.members.mahila}</div>
                 <p className="text-muted-foreground">Women community leaders</p>
               </CardContent>
             </Card>
             
             <Card className="text-center hover:shadow-lg transition-shadow duration-300">
               <CardHeader>
-                <CardTitle className="text-secondary-foreground">Kanya (Girls)</CardTitle>
+                <CardTitle className="text-primary">Kanya (Girls)</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="text-3xl font-bold text-secondary-foreground mb-2">{location.members.kanya}</div>
-                <p className="text-muted-foreground">Young female members</p>
+                <div className="text-3xl font-bold text-primary mb-2">{location.members.kanya}</div>
+                <p className="text-primary">Young female members</p>
               </CardContent>
             </Card>
           </div>

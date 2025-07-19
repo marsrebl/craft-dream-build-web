@@ -1,87 +1,98 @@
-
-import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { siteConfig } from "@/config/site";
-import { Button } from "@/components/ui/button"
-import { Menu } from "lucide-react"
+import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { Menu, X, Users, Calendar, ImageIcon, MapPin, UserPlus, LogIn } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
+import logo from "../../public/images/logo.jpg";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
 
   const navItems = [
-    { name: 'Home', path: '/' },
-    { name: 'About', path: '/about' },
-    { name: 'Events', path: '/events' },
-    { name: 'Gallery', path: '/gallery' },
-    { name: 'Locations', path: '/locations' },
-    { name: 'Contact', path: '/contact' },
-    { name: 'Register', path: '/register' },
+    { name: "Home", path: "/", icon: Users },
+    { name: "About", path: "/about", icon: Users },
+    { name: "Events", path: "/events", icon: Calendar },
+    { name: "Gallery", path: "/gallery", icon: ImageIcon },
+    { name: "Locations", path: "/locations", icon: MapPin },
+    { name: "Register", path: "/register", icon: UserPlus },
+    { name: "Contact", path: "/contact", icon: LogIn },
   ];
 
+  const isActive = (path: string) => location.pathname === path;
+
   return (
-    <nav className="bg-background border-b border-border sticky top-0 z-40 backdrop-blur-sm bg-background/95">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16">
-          {/* Logo Section */}
-          <div className="flex items-center">
-            <Link to="/" className="flex-shrink-0">
-              <span className="font-bold text-xl">{siteConfig.name}</span>
-            </Link>
-          </div>
+     <nav className="sticky top-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b border-border transition-all duration-500 ease-in-out hover:shadow-lg">
+      <div className="max-w-8xl mx-auto px-6 sm:px-8 lg:px-12">
+        <div className="flex justify-between items-center h-20 transition-all duration-300 ease-in-out">
+
+          {/*Logo Section */}
+          <Link to="/" className="flex items-center space-x-2">
+            {/* Logo image */}
+            <img src={logo} alt="Logo" className="w-20 h-20 object-contain" />
+
+            <div className="hidden sm:block">
+              <h1 className="text-xl font-bold text-foreground">Nepal Agrawal Samaj</h1>
+              <p className="text-xs text-muted-foreground">Community United</p>
+            </div>
+          </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-1">
             {navItems.map((item) => (
               <Link
                 key={item.name}
                 to={item.path}
-                className={`px-3 py-2 text-sm font-medium transition-colors duration-200 ${
-                  location.pathname === item.path
-                    ? 'text-primary border-b-2 border-primary'
-                    : 'text-muted-foreground hover:text-primary'
-                }`}
+                className={cn(
+                  "flex items-center space-x-2 px-4 py-3 rounded-lg text-sm font-medium transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-md",
+                  isActive(item.path)
+                    ? "bg-primary text-primary-foreground shadow-lg scale-105"
+                    : "text-muted-foreground hover:text-foreground hover:bg-muted/70"
+                )}
               >
-                {item.name}
+                <item.icon className="w-4 h-4" />
+                <span>{item.name}</span>
               </Link>
             ))}
           </div>
 
-          {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center">
-            <button
+          {/* Mobile menu button */}
+          <div className="md:hidden">
+            <Button
+              variant="ghost"
+              size="icon"
               onClick={() => setIsOpen(!isOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-muted-foreground hover:text-foreground focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary"
-              aria-expanded="false"
+              aria-label="Toggle menu"
             >
-              <span className="sr-only">Open main menu</span>
-              <Menu className="h-6 w-6" aria-hidden="true" />
-            </button>
+              {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            </Button>
           </div>
         </div>
-      </div>
 
-      {/* Mobile Navigation */}
-      {isOpen && (
-        <div className="md:hidden bg-background border-t border-border">
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            {navItems.map((item) => (
-              <Link
-                key={item.name}
-                to={item.path}
-                onClick={() => setIsOpen(false)}
-                className={`block px-3 py-2 text-base font-medium transition-colors duration-200 ${
-                  location.pathname === item.path
-                    ? 'text-primary bg-primary/10'
-                    : 'text-muted-foreground hover:text-primary hover:bg-accent'
-                }`}
-              >
-                {item.name}
-              </Link>
-            ))}
+        {/* Mobile Navigation */}
+        {isOpen && (
+          <div className="md:hidden border-t border-border bg-card">
+            <div className="px-2 pt-2 pb-3 space-y-1">
+              {navItems.map((item) => (
+                <Link
+                  key={item.name}
+                  to={item.path}
+                  className={cn(
+                    "flex items-center space-x-3 px-3 py-3 rounded-md text-base font-medium transition-all duration-200",
+                    isActive(item.path)
+                      ? "bg-primary text-primary-foreground shadow-md"
+                      : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                  )}
+                  onClick={() => setIsOpen(false)}
+                >
+                  <item.icon className="w-5 h-5" />
+                  <span>{item.name}</span>
+                </Link>
+              ))}
+            </div>
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </nav>
   );
 };

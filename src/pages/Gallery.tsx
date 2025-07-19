@@ -28,8 +28,8 @@ const Gallery = () => {
       title: "Annual Business Summit 2024",
       category: "Business Events",
       type: "image",
-      thumbnail: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81?auto=format&fit=crop&w=500&q=60",
-      fullImage: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81?auto=format&fit=crop&w=1200&q=80",
+      thumbnail: "../../public/images/logo.jpg",
+      fullImage: "../../public/images/agrasen.jpeg",
       description: "Successful business networking event bringing together Agrawal entrepreneurs from across the region.",
       date: "March 2024",
       tags: ["networking", "business", "summit"]

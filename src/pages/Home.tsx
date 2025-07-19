@@ -102,7 +102,7 @@ const Home = () => {
 
           <div className="relative z-10 text-center max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <h1 className="text-8xl md:text-7xl lg:text-8xl font-extrabold text-white mb-8 leading-tight drop-shadow-lg fade-in-up">
-              Agrawal{" "}
+              Nepal Agrawal{" "}
               <span className="block bg-gradient-to-r from-white to-primary-glow bg-clip-text text-transparent">
                 Samaj
               </span>
